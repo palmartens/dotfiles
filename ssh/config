@@ -1,0 +1,155 @@
+Host *
+        ServerAliveInterval 60
+        ServerAliveCountMax 2
+
+Host vs-ssh.visualstudio.com
+IdentityFile ~/.ssh/id_rsa_philippe_martens
+IdentitiesOnly yes
+
+Host ssh.dev.azure.com
+IdentityFile ~/.ssh/id_rsa_philippe_martens
+IdentitiesOnly yes
+
+Host nnlldba001
+    HostName 172.24.3.1
+    User cna488060
+    PreferredAuthentications publickey,password
+    HostKeyAlgorithms ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    # Oracle DB forward
+    localforward 1522 127.0.0.1:1521
+    # Tomcat (OTA)
+    localforward 7090 127.0.0.1:8080
+
+Host nnllmba001
+    HostName 172.24.3.2
+    User cna488060
+    PreferredAuthentications publickey,password
+    HostKeyAlgorithms ssh-rsa
+    # RabbitMQ
+    localforward 15672 127.0.0.1:15672
+    # RabbitMQ Gui
+    localforward 5672 127.0.0.1:5672
+    # Zabbix
+    localforward 9999 127.0.0.1:9999
+
+Host nnllftp001
+    HostName 172.24.1.1
+    User cna488060
+    PreferredAuthentications publickey,password
+    HostKeyAlgorithms ssh-rsa
+
+Host nnlldbp001
+    HostName 172.24.2.1
+    User cna488060
+    PreferredAuthentications publickey,password    
+    HostKeyAlgorithms ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    # Oracle DB forward
+    localforward 11523 127.0.0.1:1521
+    # Tomcat (OTA)
+    localforward 7091 127.0.0.1:8080
+    
+Host nnllmbp001
+    HostName 172.24.2.2
+    User cna488060
+    PreferredAuthentications publickey,password
+    HostKeyAlgorithms ssh-rsa
+    # RabbitMQ
+    localforward 15673 127.0.0.1:15672
+    # RabbitMQ Gui
+    localforward 5673 127.0.0.1:5672
+    localforward 8080 127.0.0.1:80
+    
+Host nlgpaotaapp01
+    HostName 172.24.6.2
+    User cna488060
+    PreferredAuthentications publickey,password
+    HostKeyAlgorithms ssh-rsa
+    RequestTTY yes
+    RemoteCommand sudo su - envadmin
+
+    # Traefik dashboard
+    localforward 3224 127.0.0.1:8081
+
+    # Traefik http endpoint port 80
+    localforward 3225 127.0.0.1:8082
+
+    # Portainer endpoint
+    localforward 3227 127.0.0.1:9000
+
+    # RabbitMQ
+    localforward 15673 127.0.0.1:15672
+
+    # Mailhog GUI DEV
+    localforward 8025 127.0.0.1:8025
+    # Mailhog GUI TST
+    localforward 8026 127.0.0.1:8026
+
+
+Host nlgpaotaapp01_envadmin
+    HostName 172.24.6.2
+    User cna488060
+    PreferredAuthentications publickey,password
+    HostKeyAlgorithms ssh-rsa
+    RemoteCommand sudo su - envadmin
+    RequestTTY force
+
+    # Traefik dashboard
+    localforward 3224 127.0.0.1:8081
+
+    # Traefik http endpoint port 80
+    localforward 3225 127.0.0.1:8082
+
+    # Portainer endpoint
+    localforward 3227 127.0.0.1:9000
+
+    # RabbitMQ
+    localforward 15673 127.0.0.1:15672
+
+    # Mailhog GUI
+    localforward 8025 127.0.0.1:8025
+
+Host nlgpaotadb01
+    HostName 172.24.6.1 
+    User cna488060
+    HostKeyAlgorithms ssh-rsa
+    PreferredAuthentications publickey,password
+    RequestTTY yes
+    RemoteCommand sudo su - envadmin
+    #PostgreSQL
+    localforward 5433 127.0.0.1:5432
+
+Host nlgpaprdapp01
+    HostName 172.24.5.2
+    User cna488060
+    HostKeyAlgorithms ssh-rsa
+    PreferredAuthentications publickey,password
+    RequestTTY yes
+    RemoteCommand sudo su - envadmin
+    
+    # Traefik dashboard
+    localforward 4224 127.0.0.1:8083
+    # Traefik http endpoint port 80
+    localforward 4225 127.0.0.1:8082
+    # Portainer endpoint
+    localforward 4227 127.0.0.1:9000
+
+Host nlgpaprddb01
+    HostName 172.24.5.1
+    User cna488060
+    HostKeyAlgorithms ssh-rsa
+    PreferredAuthentications publickey,password
+    RequestTTY yes
+    RemoteCommand sudo su - envadmin
+
+    #PostgreSQL
+    localforward 5434 127.0.0.1:5432
+    
+    
+Host nlgpaprdsftp01
+    HostName 172.24.1.3
+    User cna488060    
+    PreferredAuthentications publickey,password
+    RequestTTY yes
+    RemoteCommand sudo su - envadmin
