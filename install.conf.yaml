@@ -10,5 +10,6 @@
         path: ssh/config
         create: true
     ~/.config/terminator/config: terminator
+    ~/.config/starship.toml: starship
 
 
