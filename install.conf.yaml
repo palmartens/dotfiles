@@ -9,5 +9,6 @@
     ~/.ssh/config:
         path: ssh/config
         create: true
+    ~/.config/terminator/config: terminator
 
 
