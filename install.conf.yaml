@@ -17,6 +17,7 @@
         create: true
 
 - shell:
+  - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
   - sudo apt install -y bat
 
 
