@@ -1,13 +1,22 @@
 - clean: ['~']
 
 - link:
-    ~/.profile: profile
-    ~/.bashrc: bashrc
-    ~/.bash_logout: bash_logout
+    ~/.profile:
+        path: profile
+        force: true
+    ~/.bashrc:
+        path: bashrc
+        force: true
+    ~/.bash_logout:
+        path: bash_logout
+        force: true
     ~/.bash_aliases: bash_aliases
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
         path: ssh/config
         create: true
+
+- shell:
+  - sudo apt install -y bat
 
 
