@@ -15,7 +15,9 @@
     ~/.ssh/config:
         path: ssh/config
         create: true
-    ~/.config/terminator/config: terminator
+    ~/.config/terminator/config: 
+        path: terminator
+        create: true
     ~/.config/starship.toml: starship
 
 - shell:
