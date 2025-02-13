@@ -1,5 +1,14 @@
 - clean: ['~']
 
+- clean:
+    ~/.config:
+      recursive: true
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
 - link:
     ~/.profile:
         path: profile
@@ -11,13 +20,13 @@
         path: bash_logout
         force: true
     ~/.bash_aliases: bash_aliases
-    ~/.gitconfig: 
+    ~/.gitconfig:
         path: gitconfig
         force: true
     ~/.ssh/config:
         path: ssh/config
         create: true
-    ~/.config/terminator/config: 
+    ~/.config/terminator/config:
         path: terminator
         create: true
     ~/.config/nvim:
@@ -26,7 +35,11 @@
     ~/.config/starship.toml: starship
 
 - shell:
-  - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-  - sudo apt install -y bat colordiff tmux
+  -
+    command: chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+    quiet: true
+  -
+    command: sudo apt install -y bat colordiff tmux neovim
+    description: Installing additional packages
 
 
