@@ -20,6 +20,9 @@
     ~/.config/terminator/config: 
         path: terminator
         create: true
+    ~/.config/nvim:
+        path: config/nvim
+        create: true
     ~/.config/starship.toml: starship
 
 - shell:
