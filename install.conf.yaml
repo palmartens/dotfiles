@@ -27,6 +27,6 @@
 
 - shell:
   - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-  - sudo apt install -y bat
+  - sudo apt install -y bat colordiff tmux
 
 
