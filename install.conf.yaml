@@ -39,7 +39,11 @@
     command: chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
     quiet: true
   -
-    command: sudo apt install -y bat colordiff tmux neovim
+    command: sudo apt install -y bat colordiff tmux vim ccze terminator
     description: Installing additional packages
+  -
+    command: ./script/docker-install.sh
+    description: Installing docker
+    stdout: true
 
 
