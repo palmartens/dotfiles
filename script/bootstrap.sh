@@ -1,3 +1,6 @@
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*    
+
 echo "Setting Mint (Cinnamon) preferences"
 gsettings set org.nemo.preferences desktop-is-home-dir false
 gsettings set org.nemo.desktop volumes-visible false    

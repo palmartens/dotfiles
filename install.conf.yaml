@@ -35,10 +35,7 @@
         create: true
     ~/.config/starship.toml: starship
 
-- shell:
-  -
-    command: chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
-    quiet: true
+- shell:  
   -
     command: ./script/bootstrap.sh
     description: Bootstrap
