@@ -35,3 +35,10 @@ else
   echo "Installing docker"
   . ./script/docker-install.sh
 fi
+
+if which starship > /dev/null 2>&1; then
+  echo "Starship is already installed."
+else
+  echo "Installing starship"
+  curl -sS https://starship.rs/install.sh | sh
+fi

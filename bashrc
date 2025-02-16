@@ -89,3 +89,4 @@ export PATH=/home/vagrant/Tools/maven/bin:$PATH
 # BEGIN Adding AWS_CA_BUNDLE 
 export AWS_CA_BUNDLE="/usr/local/share/ca-certificates/zscaler-ca.crt"
 # END Adding AWS_CA_BUNDLE 
+eval $(starship init bash)
