@@ -26,6 +26,7 @@
     ~/.ssh/config:
         path: ssh/config
         create: true
+        force: true
     ~/.config/terminator/config:
         path: terminator
         create: true

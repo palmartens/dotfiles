@@ -13,7 +13,7 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
 gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
 
 echo "Installing packages"
-sudo apt install -y bat colordiff tmux vim ccze terminator
+sudo apt-get install -y bat colordiff tmux vim ccze terminator > /dev/null
 
 # Check if the folder exists
 if [ -d "/usr/local/share/fonts/Hack/" ]; then
@@ -21,15 +21,14 @@ if [ -d "/usr/local/share/fonts/Hack/" ]; then
 else
     echo "Installing Hack Nerd font"
     wget -P /tmp https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip 2> /dev/null
-    sudo unzip /tmp/Hack.zip -d /usr/local/share/fonts/Hack
+    sudo unzip /tmp/Hack.zip -d /usr/local/share/fonts/Hack > /dev/null
     rm /tmp/Hack.zip
-    fc-cache -fv > /dev/null
+    fc-cache -f
 fi
 
-echo "Checking if docker is installed"
 if which docker > /dev/null 2>&1; then
   echo "Docker is already installed."
 else
-  echo "Docker not installed, installing now."
-  bash ./docker-install.sh
+  echo "Installing docker"
+  . ./script/docker-install.sh
 fi
