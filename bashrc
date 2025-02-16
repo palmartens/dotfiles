@@ -79,14 +79,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-# BEGIN Adding ws 
-export devws=/home/vagrant/Sources/ws
-# END Adding ws 
-# BEGIN Adding tomcat path
-PATH=$PATH:/home/vagrant/Tools/apache-tomcat-8.5.34/bin/
-# END Adding tomcat path
-export PATH=/home/vagrant/Tools/maven/bin:$PATH
-# BEGIN Adding AWS_CA_BUNDLE 
-export AWS_CA_BUNDLE="/usr/local/share/ca-certificates/zscaler-ca.crt"
-# END Adding AWS_CA_BUNDLE 
+
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+    export PATH="$PATH:$HOME/.local/bin"
+fi
+
 eval $(starship init bash)

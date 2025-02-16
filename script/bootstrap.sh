@@ -40,5 +40,6 @@ if which starship > /dev/null 2>&1; then
   echo "Starship is already installed."
 else
   echo "Installing starship"
-  curl -sS https://starship.rs/install.sh | sh
+  mkdir -p ~/.local/bin
+  curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin/
 fi
