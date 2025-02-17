@@ -37,3 +37,11 @@
     command: ./script/bootstrap.sh
     description: Bootstrap
     stdout: true
+  -
+    command: ./script/docker-install.sh
+    description: Install Docker
+    stdout: true
+  -
+    command: ./script/vscode-install.sh
+    description: Install VSCode
+    stdout: true

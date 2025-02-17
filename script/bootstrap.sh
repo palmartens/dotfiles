@@ -18,14 +18,6 @@ gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
 echo "Installing packages"
 sudo apt-get install -y bat colordiff tmux vim ccze terminator > /dev/null
 
-
-if which docker > /dev/null 2>&1; then
-  echo "Docker is already installed."
-else
-  echo "Installing docker"
-  . ./script/docker-install.sh
-fi
-
 if which starship > /dev/null 2>&1; then
   echo "Starship is already installed."
 else

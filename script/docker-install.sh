@@ -1,3 +1,9 @@
+if which docker > /dev/null 2>&1; then
+  echo "Docker is already installed"
+  exit 0
+fi
+
+
 echo "Updating and installing required packages"
 sudo apt-get update > /dev/null
 sudo apt-get install apt-transport-https > /dev/null
