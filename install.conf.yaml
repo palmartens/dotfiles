@@ -10,14 +10,8 @@
       relink: true
 
 - link:
-    ~/.profile:
-        path: profile
-        force: true
     ~/.bashrc:
         path: bashrc
-        force: true
-    ~/.bash_logout:
-        path: bash_logout
         force: true
     ~/.bash_aliases: bash_aliases
     ~/.gitconfig:
@@ -34,11 +28,12 @@
         path: config/nvim
         create: true
     ~/.config/starship.toml: starship
+    ~/.local/share/fonts:
+        path: fonts
+        create: true
 
-- shell:  
+- shell:
   -
     command: ./script/bootstrap.sh
     description: Bootstrap
     stdout: true
-    
-
