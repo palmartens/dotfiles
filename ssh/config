@@ -10,6 +10,11 @@ Host ssh.dev.azure.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
 IdentitiesOnly yes
 
+Host github.com
+IdentityFile ~/.ssh/id_rsa_philippe_martens
+IdentitiesOnly yes
+
+
 Host nnlldba001
     HostName 172.24.3.1
     User cna488060
