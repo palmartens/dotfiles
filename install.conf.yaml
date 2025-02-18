@@ -45,3 +45,7 @@
     command: ./script/vscode-install.sh
     description: Install VSCode
     stdout: true
+  -
+    command: ./script/ghostty-install.sh
+    description: Install Ghostty
+    stdout: true
