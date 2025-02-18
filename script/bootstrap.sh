@@ -1,26 +1,38 @@
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*    
 
-echo "Setting Mint (Cinnamon) preferences"
-gsettings set org.nemo.preferences desktop-is-home-dir false
-gsettings set org.nemo.desktop volumes-visible false    
-gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
-gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Aqua'
-gsettings set org.gnome.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
-gsettings set org.mate.interface gtk-theme 'Mint-Y-Dark-Aqua'
-gsettings set x.dm.slick-greeter theme-name 'Mint-Y-Dark-Aqua'
-gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
-gsettings set org.gnome.desktop.interface icon-theme 'Mint-Y'
-gsettings set org.x.apps.portal color-scheme 'prefer-dark'
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
+DISTRO_NAME=$(cat /etc/*-release | grep ID | head -n1 | cut -d '=' -f2)
+echo "$DISTRO_NAME Detected"
 
-#Mint uses the gnome-terminal. First get the default profile 
-profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
-profile=${profile:1:-1}
-#and now we can change settings:
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ font 'Hack Nerd Font 10'
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ use-system-font false
+if [ "$DISTRO_NAME" == "Ubuntu" ] 
+then
+  echo "Ubuntu settings"
+  
+else
+  echo "Setting Mint (Cinnamon) preferences"
+  gsettings set org.nemo.preferences desktop-is-home-dir false
+  gsettings set org.nemo.desktop volumes-visible false    
+  gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
+  gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Aqua'
+  gsettings set org.gnome.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
+  gsettings set org.mate.interface gtk-theme 'Mint-Y-Dark-Aqua'
+  gsettings set x.dm.slick-greeter theme-name 'Mint-Y-Dark-Aqua'
+  gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
+  gsettings set org.gnome.desktop.interface icon-theme 'Mint-Y'
+  gsettings set org.x.apps.portal color-scheme 'prefer-dark'
+  gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
+  gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
+  
+  #Mint uses the gnome-terminal. First get the default profile 
+  profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
+  profile=${profile:1:-1}
+  #and now we can change settings:
+  gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ font 'Hack Nerd Font 10'
+  gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ use-system-font false
+
+fi
+
+
 
 echo "Installing packages"
 sudo apt-get install -y bat colordiff tmux vim ccze terminator > /dev/null

@@ -12,6 +12,7 @@
     disable_mousewheel_zoom = True
     use_system_font = False
     use_theme_colors = True
+    bold_is_bright = True
     copy_on_selection = True
 [layouts]
   [[default]]
