@@ -13,7 +13,10 @@
     ~/.bashrc:
         path: bashrc
         force: true
-    ~/.bash_aliases: bash_aliases
+    ~/.bash_profile:
+        path: bash_profile
+    ~/.bash_aliases:
+        path: bash_aliases
     ~/.gitconfig:
         path: gitconfig
         force: true
@@ -21,13 +24,8 @@
         path: ssh/config
         create: true
         force: true
-    ~/.config/terminator/config:
-        path: terminator
-        create: true
-    ~/.config/nvim:
-        path: config/nvim
-        create: true
-    ~/.config/starship.toml: starship
+    ~/.config/starship.toml:
+        path: starship
     ~/.local/share/fonts:
         path: fonts
         create: true

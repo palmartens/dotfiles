@@ -11,3 +11,5 @@ echo "Installing Ghostty"
 sudo apt-get install -y /tmp/ghostty.deb > /dev/null
 rm -f /tmp/ghostty.deb
 
+echo "Setting Ghostty as default x-terminal-emulator"
+sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which ghostty) 50
