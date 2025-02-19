@@ -1,4 +1,5 @@
-if which docker > /dev/null 2>&1; then
+if command -v docker > /dev/null 
+then
   echo "Docker is already installed"
   exit 0
 fi
