@@ -85,3 +85,16 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
 fi
 
 eval $(starship init bash)
+# BEGIN Adding Keychain path
+/usr/bin/keychain --nogui $HOME/.ssh/id_rsa_philippe_martens
+source $HOME/.keychain/$HOSTNAME-sh
+# END Adding Keychain path
+# BEGIN Adding CGI VPN user
+export CGIVPNUSER=philippe.martens
+# END Adding CGI VPN user
+# BEGIN Adding ws 
+export devws=/home/vagrant/Sources/ws
+# END Adding ws 
+# BEGIN Adding AWS_CA_BUNDLE 
+export AWS_CA_BUNDLE="/usr/local/share/ca-certificates/zscaler-ca.crt"
+# END Adding AWS_CA_BUNDLE 
