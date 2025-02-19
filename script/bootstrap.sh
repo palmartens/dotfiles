@@ -1,15 +1,17 @@
+. ./script/functions.sh
+
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/*    
 
-DISTRO_NAME=$(cat /etc/*-release | grep ID | head -n1 | cut -d '=' -f2)
+DISTRO_NAME=$(getLinuxDistro)
 echo "$DISTRO_NAME Detected"
 
-if [ "$DISTRO_NAME" == "Ubuntu" ]
-then
-  echo "Setting Ubuntu preferences"
-  echo 'Enable dark mode'
+case "$DISTRO_NAME" in
+  "ubuntu")
+    echo "Setting Ubuntu preferences"
+    echo 'Enable dark mode'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-	  gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-olive-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-olive-dark'
     echo "Disable blank screen delay"
     gsettings set org.gnome.desktop.session idle-delay 0
     echo "Disable automatic screen lock"
@@ -20,21 +22,26 @@ then
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
-else
-  echo "Setting Mint (Cinnamon) preferences"
-  gsettings set org.nemo.preferences desktop-is-home-dir false
-  gsettings set org.nemo.desktop volumes-visible false
-  gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
-  gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Aqua'
-  gsettings set org.gnome.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
-  gsettings set org.mate.interface gtk-theme 'Mint-Y-Dark-Aqua'
-  gsettings set x.dm.slick-greeter theme-name 'Mint-Y-Dark-Aqua'
-  gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
-  gsettings set org.gnome.desktop.interface icon-theme 'Mint-Y'
-  gsettings set org.x.apps.portal color-scheme 'prefer-dark'
-  gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
-  gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
-fi
+    ;;
+  "linuxmint")
+    echo "Setting Mint (Cinnamon) preferences"
+    gsettings set org.nemo.preferences desktop-is-home-dir false
+    gsettings set org.nemo.desktop volumes-visible false
+    gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
+    gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Aqua'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Mint-Y-Dark-Aqua'
+    gsettings set org.mate.interface gtk-theme 'Mint-Y-Dark-Aqua'
+    gsettings set x.dm.slick-greeter theme-name 'Mint-Y-Dark-Aqua'
+    gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
+    gsettings set org.gnome.desktop.interface icon-theme 'Mint-Y'
+    gsettings set org.x.apps.portal color-scheme 'prefer-dark'
+    gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
+    gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
+    ;;
+  *)
+    echo "Distribution '$DISTRO_NAME' not supported (yet...)."
+    ;;
+esac
 
 echo "Refreshing font cache"
 fc-cache -f > /dev/null
