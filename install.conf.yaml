@@ -31,6 +31,9 @@
     ~/.local/share/fonts:
         path: fonts
         create: true
+    ~/.config/ghostty/config:
+        path: ghostty
+        create: true
 
 - shell:
   -
@@ -44,4 +47,8 @@
   -
     command: ./script/vscode-install.sh
     description: Install VSCode
+    stdout: true
+  -
+    command: ./script/ghostty-install.sh
+    description: Install Ghostty
     stdout: true
