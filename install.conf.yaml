@@ -31,6 +31,9 @@
     ~/.local/share/fonts:
         path: fonts
         create: true
+    ~/.config/ghostty/config:
+        path: ghostty
+        create: true
 
 - shell:
   -
