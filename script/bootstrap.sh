@@ -36,10 +36,11 @@ else
   gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0  
 fi
 
-
+echo "Refreshing font cache"
+fc-cache -f > /dev/null
 
 echo "Installing packages"
-sudo apt-get install -y bat colordiff tmux vim ccze terminator > /dev/null
+sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
 
 if which starship > /dev/null 2>&1; then
   echo "Starship is already installed."
