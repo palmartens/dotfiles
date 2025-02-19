@@ -23,12 +23,6 @@ else
   gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
   gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
   
-  #Mint uses the gnome-terminal. First get the default profile 
-  profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
-  profile=${profile:1:-1}
-  #and now we can change settings:
-  gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ font 'Hack Nerd Font 10'
-  gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/ use-system-font false
 
 fi
 
