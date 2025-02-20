@@ -32,6 +32,10 @@
     ~/.config/ghostty/config:
         path: ghostty
         create: true
+    ~/.fzf.bash:
+        path: fzf_bash
+        force: true
+
 
 - shell:
   -
@@ -56,4 +60,12 @@
   -
     command: cd script && ./lazygit-install.sh
     description: Install LazyGit
+    stdout: true
+  -
+    command: cd script && ./fzf-install.sh
+    description: Install fzf
+    stdout: true
+  -
+    command: cd script && ./ripgrep-install.sh
+    description: Install ripgrep
     stdout: true
