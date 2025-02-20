@@ -1,8 +1,5 @@
-if command -v docker > /dev/null 
-then
-  echo "Docker is already installed"
-  exit 0
-fi
+. ./functions.sh
+isInstalled docker
 
 
 echo "Updating and installing required packages"

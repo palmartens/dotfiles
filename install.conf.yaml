@@ -35,18 +35,18 @@
 
 - shell:
   -
-    command: ./script/bootstrap.sh
+    command: cd script && ./bootstrap.sh
     description: Bootstrap
     stdout: true
   -
-    command: ./script/docker-install.sh
+    command: cd script && ./docker-install.sh
     description: Install Docker
     stdout: true
   -
-    command: ./script/vscode-install.sh
+    command: cd script && ./vscode-install.sh
     description: Install VSCode
     stdout: true
   -
-    command: ./script/ghostty-install.sh
+    command: cd script && ./ghostty-install.sh
     description: Install Ghostty
     stdout: true
