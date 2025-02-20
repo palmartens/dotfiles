@@ -38,6 +38,9 @@
     command: cd script && ./bootstrap.sh
     description: Bootstrap
     stdout: true
+  - 
+    command: fc-cache -f
+    description: Refreshing font cache    
   -
     command: cd script && ./docker-install.sh
     description: Install Docker

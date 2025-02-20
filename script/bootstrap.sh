@@ -43,9 +43,6 @@ case "$DISTRO_NAME" in
     ;;
 esac
 
-echo "Refreshing font cache"
-fc-cache -f > /dev/null
-
 echo "Installing packages"
 sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
 
