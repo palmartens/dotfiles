@@ -85,3 +85,5 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
 fi
 
 eval $(starship init bash)
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
