@@ -53,3 +53,7 @@
     command: cd script && ./ghostty-install.sh
     description: Install Ghostty
     stdout: true
+  -
+    command: cd script && ./lazygit-install.sh
+    description: Install LazyGit
+    stdout: true
