@@ -5,7 +5,9 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
-		require("mason").setup()
+		require("mason").setup({
+			providers = { "mason.providers.client", "mason.providers.registry-api" },
+		})
 
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
@@ -32,4 +34,3 @@ return {
 		})
 	end,
 }
-
