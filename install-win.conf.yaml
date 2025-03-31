@@ -1,0 +1,25 @@
+- clean: ['~']
+
+- clean:
+    ~/.config:
+      recursive: true
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- link:
+    ~/.gitconfig:
+        path: gitconfig
+        force: true
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+        force: true
+
+- shell:
+  -
+    command: echo "Done Windows Dotbot"
+    description: Done
+    stdout: true

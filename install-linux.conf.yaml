@@ -6,24 +6,18 @@
 
 - defaults:
     link:
+      if: '[ "$(uname -s)" = "Linux" ]'
       create: true
       relink: true
 
 - link:
     ~/.bashrc:
         path: bashrc
-        force: true
+        force: true       
     ~/.bash_profile:
-        path: bash_profile
+        path: bash_profile        
     ~/.bash_aliases:
         path: bash_aliases
-    ~/.gitconfig:
-        path: gitconfig
-        force: true
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-        force: true
     ~/.config/starship.toml:
         path: starship
     ~/.local/share/fonts:
@@ -40,10 +34,25 @@
         create: true
         force: true
 
+- defaults:
+    link:      
+      create: true
+      relink: true
+- link:
+    ~/.gitconfig:
+        path: gitconfig
+        force: true
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+        force: true
 
 - shell:
   -
-    command: cd script && ./bootstrap.sh
+    command: |
+      if [ "$(uname -s)" = "Linux" ]; then
+        cd script && ./bootstrap.sh
+      fi
     description: Bootstrap
     stdout: true
   - 
