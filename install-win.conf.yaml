@@ -10,16 +10,39 @@
       relink: true
 
 - link:
-    ~/.gitconfig:
+    $USERPROFILE/.gitconfig:
         path: gitconfig
         force: true
-    ~/.ssh/config:
+    $USERPROFILE/.ssh/config:
         path: ssh/config
         create: true
         force: true
+    $LOCALAPPDATA/Packages/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe/LocalState/settings.json:
+      path: config/winget/settings.json
+      create: true
+      force: true
+    $LOCALAPPDATA/starship/starship.toml:
+      path: starship
+      force: true
+      create: true    
+    $USERPROFILE\Documents\PowerShell\:
+      path: script\pwsh\**.ps1 
+      glob: true
+      force: true
+    $ONEDRIVE\Documents\PowerShell\:
+      path: script/pwsh/**.ps1 
+      glob: true
+      if: pwsh.exe -Command test-path -Path $env:ONEDRIVE\Documents\PowerShell
+      force: true
+      create: true
+    $LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json:
+      path: config/wt/settings.json
+      force: true
+      create: true
 
 - shell:
-  -
-    command: echo "Done Windows Dotbot"
-    description: Done
+  - 
+    command: winget install lazygit -h
+    description: Install lazygit
     stdout: true
+  
