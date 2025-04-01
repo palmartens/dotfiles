@@ -42,7 +42,7 @@
 
 - shell:
   - 
-    command: winget install lazygit -h
-    description: Install lazygit
+    command: echo "Done!"
+    description: Ready
     stdout: true
   

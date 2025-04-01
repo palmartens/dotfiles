@@ -14,7 +14,6 @@ Host github.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
 IdentitiesOnly yes
 
-
 Host nnlldba001
     HostName 172.24.3.1
     User cna488060
@@ -158,3 +157,17 @@ Host nlgpaprdsftp01
     PreferredAuthentications publickey,password
     RequestTTY yes
     RemoteCommand sudo su - envadmin
+
+Host GPA24
+  HostName 127.0.0.1
+  User vagrant
+  Port 2888
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile "C:/Users/Philippe.martens/OneDrive - CGI/Documents/Vagrant/GPA24/.vagrant/machines/gpadevubu-24/virtualbox/private_key"
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
