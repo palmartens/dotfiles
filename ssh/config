@@ -1,6 +1,8 @@
 Host *
         ServerAliveInterval 60
         ServerAliveCountMax 2
+	IdentityFile ~/.ssh/id_rsa_philippe_martens
+
 
 Host vs-ssh.visualstudio.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
