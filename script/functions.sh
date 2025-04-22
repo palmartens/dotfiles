@@ -1,5 +1,5 @@
 getLinuxDistro () {
-    echo $(cat /etc/os-release | grep -v VERSION_ID | grep ID | head -n1 | cut -d '=' -f2 | tr '[:upper:]' '[:lower:]') 
+    echo $(cat /etc/os-release | grep -v VERSION_ID | grep ID | head -n1 | cut -d '=' -f2 | tr '[:upper:]' '[:lower:]' | tr -d '"' | tr -d "'") 
 }
 
 isInstalled() {
