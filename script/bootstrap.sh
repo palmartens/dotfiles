@@ -62,7 +62,7 @@ esac
 echo "Installing packages"
 
 if [ "$DISTRO_NAME" = "endeavouros" ]; then
-  sudo pacman -S --noconfirm --needed bat colordiff tmux vim > /dev/null
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty > /dev/null
 else
   sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
 fi
