@@ -1,6 +1,8 @@
 Host *
         ServerAliveInterval 60
         ServerAliveCountMax 2
+ 	IdentityFile ~/.ssh/id_rsa_philippe_martens
+
 
 Host vs-ssh.visualstudio.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
@@ -13,6 +15,16 @@ IdentitiesOnly yes
 Host github.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
 IdentitiesOnly yes
+
+Host hellfish.synology.me
+    HostName hellfish.synology.me
+    Port 6767
+    User pmr
+    PreferredAuthentications password
+    localforward 5030 127.0.0.1:5030
+    localforward 81 127.0.0.1:81
+    localforward 6789 127.0.0.1:6789
+
 
 Host nnlldba001
     HostName 172.24.3.1
@@ -29,6 +41,7 @@ Host nnllmba001
     HostName 172.24.3.2
     User cna488060
     PreferredAuthentications publickey,password
+    IdentityFile ~/.ssh/id_rsa_philippe_martens
     HostKeyAlgorithms ssh-rsa
     # RabbitMQ
     localforward 15672 127.0.0.1:15672
@@ -69,6 +82,7 @@ Host nlgpaotaapp01
     HostName 172.24.6.2
     User cna488060
     PreferredAuthentications publickey,password
+    IdentityFile ~/.ssh/id_rsa_philippe_martens
     HostKeyAlgorithms ssh-rsa
     RequestTTY yes
     RemoteCommand sudo su - envadmin
@@ -119,6 +133,7 @@ Host nlgpaotadb01
     User cna488060
     HostKeyAlgorithms ssh-rsa
     PreferredAuthentications publickey,password
+    IdentityFile ~/.ssh/id_rsa_philippe_martens
     RequestTTY yes
     RemoteCommand sudo su - envadmin
     #PostgreSQL

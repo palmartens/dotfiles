@@ -7,15 +7,30 @@ New-Alias vi nvim
 
 . "$env:Onedrive\Documents\PowerShell\outlookofflineonline.ps1"
 
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
-# $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-# if (Test-Path($ChocolateyProfile)) {
-#   Import-Module "$ChocolateyProfile"
-# }
-
 function weer { curl "wttr.in/Eijsden?format=3&m" }
-#(@(& 'C:/Users/Philippe.martens/AppData/Local/Programs/oh-my-posh/bin/oh-my-posh.exe' init powershell --config='C:\Users\Philippe.martens\AppData\Local\Programs\oh-my-posh\themes\spaceship.omp.json' --print) -join "`n") | Invoke-Expression
+
+# function DisableVbs {
+#     & "C:\Users\Philippe.martens\OneDrive - CGI\Documents\PowerShell\Scripts\DGReadiness\DG_Readiness_Tool_v3.6.ps1" -Disable
+# }
+    
+function DisableVbs {
+    Write-Host("Disabling VBS")
+    if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+        Write-Host("This script must be run as administrator.")    
+        return
+    }
+    & "C:\Users\Philippe.martens\OneDrive - CGI\Documents\PowerShell\Scripts\DGReadiness\DG_Readiness_Tool_v3.6.ps1" -Disable
+    Write-Host("VBS Disabled, please reboot.")
+    
+}
+
+function EnableVbs {
+    Write-Host("Enabling VBS")
+    if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+        Write-Host("This script must be run as administrator.")    
+        return
+    }
+    & "C:\Users\Philippe.martens\OneDrive - CGI\Documents\PowerShell\Scripts\DGReadiness\DG_Readiness_Tool_v3.6.ps1" -Enable
+    Write-Host("VBS Enabled, please reboot.")
+    
+}
