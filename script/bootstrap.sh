@@ -65,12 +65,13 @@ if [ "$DISTRO_NAME" = "endeavouros" ]; then
   sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty > /dev/null
 else
   sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
+  if which starship > /dev/null 2>&1; then
+    echo "Starship is already installed."
+  else
+    echo "Installing starship"
+    mkdir -p ~/.local/bin
+    curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin/
+  fi
+
 fi
 
-if which starship > /dev/null 2>&1; then
-  echo "Starship is already installed."
-else
-  echo "Installing starship"
-  mkdir -p ~/.local/bin
-  curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin/
-fi
