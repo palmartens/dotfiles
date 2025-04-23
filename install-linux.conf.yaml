@@ -59,10 +59,6 @@
     command: fc-cache -f
     description: Refreshing font cache    
   -
-    command: cd script && ./docker-install.sh
-    description: Install Docker
-    stdout: true
-  -
     command: cd script && ./vscode-install.sh
     description: Install VSCode
     stdout: true
