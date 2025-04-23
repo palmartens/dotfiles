@@ -37,6 +37,22 @@ case "$DISTRO_NAME" in
     gsettings set org.x.apps.portal color-scheme 'prefer-dark'
     gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
     gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
+    ;;    
+  "endeavouros")
+    echo "Setting Arch preferences"
+    echo 'Enable dark mode'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+    echo "Disable blank screen delay"
+    gsettings set org.gnome.desktop.session idle-delay 0
+    echo "Disable automatic screen lock"
+    gsettings set org.gnome.desktop.screensaver lock-enabled false
+    echo "Setup the dock"
+    gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
+    gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+    gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
+    gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
     ;;
   *)
     echo "Distribution '$DISTRO_NAME' not supported (yet...)."
@@ -44,12 +60,18 @@ case "$DISTRO_NAME" in
 esac
 
 echo "Installing packages"
-sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
 
-if which starship > /dev/null 2>&1; then
-  echo "Starship is already installed."
+if [ "$DISTRO_NAME" = "endeavouros" ]; then
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty > /dev/null
 else
-  echo "Installing starship"
-  mkdir -p ~/.local/bin
-  curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin/
+  sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
+  if which starship > /dev/null 2>&1; then
+    echo "Starship is already installed."
+  else
+    echo "Installing starship"
+    mkdir -p ~/.local/bin
+    curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin/
+  fi
+
 fi
+
