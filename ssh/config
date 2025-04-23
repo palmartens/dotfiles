@@ -1,6 +1,8 @@
 Host *
         ServerAliveInterval 60
         ServerAliveCountMax 2
+	IdentityFile ~/.ssh/id_rsa_philippe_martens
+
 
 Host vs-ssh.visualstudio.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
@@ -13,6 +15,15 @@ IdentitiesOnly yes
 Host github.com
 IdentityFile ~/.ssh/id_rsa_philippe_martens
 IdentitiesOnly yes
+
+Host hellfish.synology.me
+    HostName hellfish.synology.me
+    Port 6767
+    User pmr
+    PreferredAuthentications password
+    localforward 5030 127.0.0.1:5030
+    localforward 81 127.0.0.1:81
+    localforward 6789 127.0.0.1:6789
 
 
 Host nnlldba001
@@ -30,6 +41,7 @@ Host nnllmba001
     HostName 172.24.3.2
     User cna488060
     PreferredAuthentications publickey,password
+    IdentityFile ~/.ssh/id_rsa_philippe_martens
     HostKeyAlgorithms ssh-rsa
     # RabbitMQ
     localforward 15672 127.0.0.1:15672
@@ -70,6 +82,7 @@ Host nlgpaotaapp01
     HostName 172.24.6.2
     User cna488060
     PreferredAuthentications publickey,password
+    IdentityFile ~/.ssh/id_rsa_philippe_martens
     HostKeyAlgorithms ssh-rsa
     RequestTTY yes
     RemoteCommand sudo su - envadmin
@@ -120,6 +133,7 @@ Host nlgpaotadb01
     User cna488060
     HostKeyAlgorithms ssh-rsa
     PreferredAuthentications publickey,password
+    IdentityFile ~/.ssh/id_rsa_philippe_martens
     RequestTTY yes
     RemoteCommand sudo su - envadmin
     #PostgreSQL
@@ -158,3 +172,17 @@ Host nlgpaprdsftp01
     PreferredAuthentications publickey,password
     RequestTTY yes
     RemoteCommand sudo su - envadmin
+
+Host GPA24
+  HostName 127.0.0.1
+  User vagrant
+  Port 2888
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+  IdentityFile "C:/Users/Philippe.martens/OneDrive - CGI/Documents/Vagrant/GPA24/.vagrant/machines/gpadevubu-24/virtualbox/private_key"
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+

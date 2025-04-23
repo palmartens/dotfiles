@@ -1,0 +1,48 @@
+- clean: ['~']
+
+- clean:
+    ~/.config:
+      recursive: true
+
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- link:
+    $USERPROFILE/.gitconfig:
+        path: gitconfig
+        force: true
+    $USERPROFILE/.ssh/config:
+        path: ssh/config
+        create: true
+        force: true
+    $LOCALAPPDATA/Packages/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe/LocalState/settings.json:
+      path: config/winget/settings.json
+      create: true
+      force: true
+    $LOCALAPPDATA/starship/starship.toml:
+      path: starship
+      force: true
+      create: true    
+    $USERPROFILE\Documents\PowerShell\:
+      path: script\pwsh\**.ps1 
+      glob: true
+      force: true
+    $ONEDRIVE\Documents\PowerShell\:
+      path: script/pwsh/**.ps1 
+      glob: true
+      if: pwsh.exe -Command test-path -Path $env:ONEDRIVE\Documents\PowerShell
+      force: true
+      create: true
+    $LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json:
+      path: config/wt/settings.json
+      force: true
+      create: true
+
+- shell:
+  - 
+    command: echo "Done!"
+    description: Ready
+    stdout: true
+  
