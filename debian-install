@@ -2,7 +2,7 @@
 
 set -e
 
-CONFIG="install-linux.conf.yaml"
+CONFIG="install-debian.conf.yaml"
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
