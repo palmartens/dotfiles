@@ -1,0 +1,67 @@
+- clean: ['~']
+
+- clean:
+    ~/.config:
+      recursive: true
+
+- defaults:
+    link:
+      if: '[ "$(uname -s)" = "Linux" ]'
+      create: true
+      relink: true
+
+- link:
+    ~/.bashrc:
+        path: bashrc
+        force: true       
+    ~/.bash_profile:
+        path: bash_profile
+    ~/.bash_aliases:
+        path: bash_aliases_arch
+    ~/.config/starship.toml:
+        path: starship
+    ~/.local/share/fonts:
+        path: fonts
+        create: true
+    ~/.config/ghostty/config:
+        path: ghostty
+        create: true
+    ~/.fzf.bash:
+        path: fzf_bash
+        force: true
+    ~/.pacman.conf:
+        path: pacman_conf
+        force: true
+    ~/.vimrc:
+        path: config/vim/vimrc
+    ~/.vim/autoload:
+        path: config/vim/autoload
+    
+- defaults:
+    link:      
+      create: true
+      relink: true
+- link:
+    ~/.gitconfig:
+        path: gitconfig
+        force: true
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
+        force: true
+
+- shell:
+  -
+    command: |
+      if [ "$(uname -s)" = "Linux" ]; then
+        cd script && ./bootstrap.sh
+      fi
+    description: Bootstrap
+    stdout: true
+  #- 
+  #  command: fc-cache -f
+  #  description: Refreshing font cache
+  - 
+    command: echo -e "Done! to copy the pacman config, use the following command\nsudo cp ~/.pacman.conf /etc/pacman.conf"
+    description: Done!
+    stdout: true

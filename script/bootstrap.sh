@@ -22,6 +22,9 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+    gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+
     ;;
   "linuxmint")
     echo "Setting Mint (Cinnamon) preferences"
@@ -53,6 +56,8 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+    gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
     ;;
   *)
     echo "Distribution '$DISTRO_NAME' not supported (yet...)."
@@ -62,7 +67,7 @@ esac
 echo "Installing packages"
 
 if [ "$DISTRO_NAME" = "endeavouros" ]; then
-  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty > /dev/null
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty bat
 else
   sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
   if which starship > /dev/null 2>&1; then
@@ -74,4 +79,3 @@ else
   fi
 
 fi
-
