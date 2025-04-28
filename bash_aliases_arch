@@ -1,3 +1,5 @@
 alias ctop='docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/run/docker.sock:ro quay.io/vektorlab/ctop:latest -s name'
 alias cat='bat -Pp'
 alias diff='colordiff'
+alias fd='fd -H --color=always'
+

@@ -1,8 +1,5 @@
-font-family = Fira Code
-font-size = 10
+font-family = Hack Nerd Font
 theme = Dark+
 background-opacity = 0.99
 bold-is-bright = true
-
-keybind = performable:ctrl+c=copy_to_clipboard
 background = #2E3436

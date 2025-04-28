@@ -32,6 +32,10 @@
     ~/.pacman.conf:
         path: pacman_conf
         force: true
+    ~/.vimrc:
+        path: config/vim/vimrc
+    ~/.vim/autoload:
+        path: config/vim/autoload
     
 - defaults:
     link:      

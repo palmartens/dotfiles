@@ -22,6 +22,9 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+    gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+
     ;;
   "linuxmint")
     echo "Setting Mint (Cinnamon) preferences"
@@ -53,6 +56,8 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+    gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+    gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
     ;;
   *)
     echo "Distribution '$DISTRO_NAME' not supported (yet...)."
