@@ -2,4 +2,4 @@ alias ctop='docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/r
 alias cat='bat -Pp'
 alias diff='colordiff'
 alias fd='fd -H --color=always'
-
+alias vi='vim'
