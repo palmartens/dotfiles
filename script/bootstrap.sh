@@ -67,7 +67,7 @@ esac
 echo "Installing packages"
 
 if [ "$DISTRO_NAME" = "endeavouros" ]; then
-  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty bat
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty bat archlinux-wallpaper
 else
   sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
   if which starship > /dev/null 2>&1; then
