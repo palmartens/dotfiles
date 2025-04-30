@@ -12,8 +12,7 @@
 
 - link:
     ~/.bashrc:
-        path: bashrc
-        force: true
+        path: bashrc        
     ~/.bash_profile:
         path: bash_profile
     ~/.bash_aliases:
@@ -33,6 +32,11 @@
         path: config/vim/vimrc
     ~/.vim/autoload:
         path: config/vim/autoload
+        create: true
+    ~/.config/fastfetch:
+        path: config/fastfetch
+        create: true
+        force: true
 
 - defaults:
     link:

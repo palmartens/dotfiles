@@ -36,6 +36,11 @@
         path: config/vim/vimrc
     ~/.vim/autoload:
         path: config/vim/autoload
+        create: true
+    ~/.config/fastfetch:
+        path: config/fastfetch
+        create: true
+        force: true
     
 - defaults:
     link:      
