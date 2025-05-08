@@ -12,7 +12,7 @@
 
 - link:
     ~/.bashrc:
-        path: bashrc        
+        path: bashrc
     ~/.bash_profile:
         path: bash_profile
     ~/.bash_aliases:
@@ -37,6 +37,10 @@
         path: config/fastfetch
         create: true
         force: true
+    ~/.config/nvim:
+        path: config/nvim
+        create: true
+        force: true
 
 - defaults:
     link:
@@ -59,7 +63,6 @@
       fi
     description: Bootstrap
     stdout: true
-  -
     command: fc-cache -f
     description: Refreshing font cache
   -
