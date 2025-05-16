@@ -13,9 +13,8 @@
 - link:
     ~/.bashrc:
         path: bashrc
-        force: true       
     ~/.bash_profile:
-        path: bash_profile        
+        path: bash_profile
     ~/.bash_aliases:
         path: bash_aliases
     ~/.config/starship.toml:
@@ -29,13 +28,22 @@
     ~/.fzf.bash:
         path: fzf_bash
         force: true
+    ~/.vimrc:
+        path: config/vim/vimrc
+    ~/.vim/autoload:
+        path: config/vim/autoload
+        create: true
+    ~/.config/fastfetch:
+        path: config/fastfetch
+        create: true
+        force: true
     ~/.config/nvim:
         path: config/nvim
         create: true
         force: true
 
 - defaults:
-    link:      
+    link:
       create: true
       relink: true
 - link:
@@ -55,9 +63,8 @@
       fi
     description: Bootstrap
     stdout: true
-  - 
     command: fc-cache -f
-    description: Refreshing font cache    
+    description: Refreshing font cache
   -
     command: cd script && ./vscode-install.sh
     description: Install VSCode
