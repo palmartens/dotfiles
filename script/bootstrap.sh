@@ -24,7 +24,6 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
     gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
-
     ;;
   "linuxmint")
     echo "Setting Mint (Cinnamon) preferences"
@@ -41,8 +40,8 @@ case "$DISTRO_NAME" in
     gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 0
     gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
     ;;    
-  "endeavouros")
-    echo "Setting Arch preferences"
+  "endeavouros"|"arch")
+    echo "Setting ${DISTRO_NAME} preferences"
     echo 'Enable dark mode'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -66,8 +65,13 @@ esac
 
 echo "Installing packages"
 
-if [ "$DISTRO_NAME" = "endeavouros" ]; then
-  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship ghostty bat archlinux-wallpaper
+if [ "$DISTRO_NAME" = "endeavouros" ] || [ "$DISTRO_NAME" = "arch" ]; then	
+  echo "Installing Tools"
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship 
+  echo "Installing Ghostty"
+  sudo pacman -S --noconfirm --needed ttf-firacode-nerd
+  echo "Installing Fonts"
+  sudo pacman -S --noconfirm --needed ttf-firacode-nerd ttf-hack-nerd
 else
   sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
   if which starship > /dev/null 2>&1; then
