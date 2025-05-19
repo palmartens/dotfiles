@@ -24,6 +24,7 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
     gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+    gsettings set org.gnome.shell.extensions.dash-to-dock disable-overview-on-startup true
     ;;
   "linuxmint")
     echo "Setting Mint (Cinnamon) preferences"
@@ -57,6 +58,7 @@ case "$DISTRO_NAME" in
     gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
     gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
     gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+    gsettings set org.gnome.shell.extensions.dash-to-dock disable-overview-on-startup true
     ;;
   *)
     echo "Distribution '$DISTRO_NAME' not supported (yet...)."
@@ -67,11 +69,11 @@ echo "Installing packages"
 
 if [ "$DISTRO_NAME" = "endeavouros" ] || [ "$DISTRO_NAME" = "arch" ]; then	
   echo "Installing Tools"
-  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship 
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship wget curl power-profiles-daemon
   echo "Installing Ghostty"
-  sudo pacman -S --noconfirm --needed ttf-firacode-nerd
-  echo "Installing Fonts"
-  sudo pacman -S --noconfirm --needed ttf-firacode-nerd ttf-hack-nerd
+  sudo pacman -S --noconfirm --needed ghostty
+  echo "Installing Fonts & wallpapers"
+  sudo pacman -S --noconfirm --needed ttf-firacode-nerd ttf-hack-nerd archlinux-wallpaper
 else
   sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
   if which starship > /dev/null 2>&1; then
