@@ -69,7 +69,9 @@ echo "Installing packages"
 
 if [ "$DISTRO_NAME" = "endeavouros" ] || [ "$DISTRO_NAME" = "arch" ]; then	
   echo "Installing Tools"
-  sudo pacman -S --noconfirm --needed bat colordiff tmux vim code fzf ripgrep lazygit starship wget curl power-profiles-daemon
+  sudo pacman -S --noconfirm --needed bat colordiff tmux vim fzf ripgrep lazygit starship wget curl power-profiles-daemon base-devel
+  echo "Installing Tools (AUR)"
+  yay -S --needed --noconfirm visual-studio-code-bin
   echo "Installing Ghostty"
   sudo pacman -S --noconfirm --needed ghostty
   echo "Installing Fonts & wallpapers"

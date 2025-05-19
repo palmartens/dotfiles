@@ -57,15 +57,16 @@
 
 - shell:
   -
+    command: cd script && ./yay-install.sh
+    description: Install Yay
+    stdout: false
+  - 
     command: |
       if [ "$(uname -s)" = "Linux" ]; then
         cd script && ./bootstrap.sh
       fi
     description: Bootstrap
     stdout: true
-  #- 
-  #  command: fc-cache -f
-  #  description: Refreshing font cache
   - 
     command: echo -e "Done! to copy the pacman config, use the following command\nsudo cp ~/.pacman.conf /etc/pacman.conf"
     description: Done!
