@@ -115,17 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-# BEGIN Adding Keychain path
-/usr/bin/keychain --quiet --nogui $HOME/.ssh/id_rsa_philippe_martens
-source $HOME/.keychain/$HOSTNAME-sh
-# END Adding Keychain path
-# BEGIN Adding ws 
-export devws=/home/vagrant/Sources/ws
-# END Adding ws 
-export PATH=/home/vagrant/Tools/maven/bin:$PATH
-# BEGIN Adding AWS_CA_BUNDLE 
-export AWS_CA_BUNDLE="/usr/local/share/ca-certificates/zscaler-ca.crt"
-# END Adding AWS_CA_BUNDLE 
 
 if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
     export PATH="$PATH:$HOME/.local/bin"
