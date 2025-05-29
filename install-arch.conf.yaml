@@ -40,6 +40,10 @@
     ~/.config/fastfetch:
         path: config/fastfetch
         create: true
+        force: truei
+   ~/.config/hypr/hyprland.conf:
+        path: hyprland
+        create: true
         force: true
     
 - defaults:
