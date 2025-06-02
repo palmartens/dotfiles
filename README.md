@@ -7,7 +7,7 @@ Compatible with:
 - Linux Mint
 - Arch
 
-So basically only debian-based Linux distro's, other debian based distro's should work too (except for some Ubuntu / Mint specific settings in the bootstrap script) 
+Should also work on other debian-based Linux distro's (except for some Ubuntu / Mint specific settings for GNOME / Cinnamon in the bootstrap script) 
 
 Under construction:
 - Windows (Powershell)
