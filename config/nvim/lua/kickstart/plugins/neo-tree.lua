@@ -19,7 +19,7 @@ return {
         mappings = {
           ['\\'] = 'close_window',
         },
-      },
+      }
     },
   },
 }
