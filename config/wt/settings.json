@@ -16,6 +16,10 @@
             "id": "User.paste"
         },
         {
+            "command": "find",
+            "id": "User.find"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -23,10 +27,6 @@
                 "splitMode": "duplicate"
             },
             "id": "User.splitPane.A6751878"
-        },
-        {
-            "command": "find",
-            "id": "User.find"
         }
     ],
     "alwaysShowNotificationIcon": true,
@@ -41,12 +41,12 @@
             "keys": "ctrl+c"
         },
         {
-            "id": "User.paste",
-            "keys": "ctrl+v"
-        },
-        {
             "id": "User.find",
             "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
         },
         {
             "id": "User.splitPane.A6751878",
@@ -58,6 +58,22 @@
     [
         {
             "type": "remainingProfiles"
+        },
+        {
+            "allowEmpty": false,
+            "entries": 
+            [
+                {
+                    "commandline": null,
+                    "name": null,
+                    "source": "Windows.Terminal.SSH",
+                    "type": "matchProfiles"
+                }
+            ],
+            "icon": "\ue969",
+            "inline": "auto",
+            "name": "SSH",
+            "type": "folder"
         }
     ],
     "newTabPosition": "afterCurrentTab",
@@ -66,6 +82,7 @@
         "defaults": 
         {
             "bellStyle": "none",
+            "experimental.retroTerminalEffect": false,
             "font": 
             {
                 "face": "Hack Nerd Font"
@@ -92,7 +109,7 @@
             {
                 "adjustIndistinguishableColors": "never",
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "C:\\Users\\Philippe.martens\\OneDrive - CGI\\Pictures\\skynet.jpg",
+                "backgroundImage": null,
                 "backgroundImageOpacity": 0.14,
                 "backgroundImageStretchMode": "uniform",
                 "colorScheme": "Dark+",
@@ -139,7 +156,7 @@
             {
                 "adjustIndistinguishableColors": "never",
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "C:\\Users\\Philippe.martens\\OneDrive - CGI\\Pictures\\skynet.jpg",
+                "backgroundImage": null,
                 "backgroundImageOpacity": 0.1,
                 "backgroundImageStretchMode": "uniformToFill",
                 "colorScheme": "VSCode",
@@ -148,7 +165,7 @@
                 "experimental.retroTerminalEffect": false,
                 "font": 
                 {
-                    "face": "Consolas NF",
+                    "face": "Hack Nerd Font",
                     "size": 11
                 },
                 "guid": "{be104d23-f310-400c-affc-d4a3289caf1f}",
@@ -168,7 +185,7 @@
             {
                 "adjustIndistinguishableColors": "never",
                 "antialiasingMode": "grayscale",
-                "backgroundImage": "C:\\Users\\Philippe.martens\\OneDrive - CGI\\Pictures\\skynet.jpg",
+                "backgroundImage": null,
                 "backgroundImageOpacity": 0.14,
                 "backgroundImageStretchMode": "uniform",
                 "colorScheme": "Dark+",
@@ -189,28 +206,10 @@
                 "useAcrylic": false
             },
             {
-                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
-                "hidden": false,
-                "name": "Git Bash",
-                "source": "Git"
-            },
-            {
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": false,
                 "name": "Ubuntu",
                 "source": "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc"
-            },
-            {
-                "guid": "{963ff2f7-6aed-5ce3-9d91-90d99571f53a}",
-                "hidden": true,
-                "name": "Ubuntu-24.04",
-                "source": "Windows.Terminal.Wsl"
-            },
-            {
-                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
-                "hidden": false,
-                "name": "Ubuntu 24.04.1 LTS",
-                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
             },
             {
                 "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -219,16 +218,94 @@
                 "source": "Windows.Terminal.Azure"
             },
             {
-                "guid": "{d99941a6-ac70-52ea-a36c-d44efde35814}",
+                "guid": "{b22e08fd-cf86-59c9-8855-9b03d8a1d99d}",
                 "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
+                "name": "SSH - nnlldba001",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{7da9e28c-7f39-58d9-af1b-994036a15313}",
+                "hidden": false,
+                "name": "SSH - nnllmba001",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{6532796a-f00c-558b-9fc4-57ab1a14701f}",
+                "hidden": false,
+                "name": "SSH - nnllftp001",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{df789aa0-0e12-5781-9eba-c023d2413460}",
+                "hidden": false,
+                "name": "SSH - nnlldbp001",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{4ab3959a-e87f-5e4e-a755-a34be2e3f183}",
+                "hidden": false,
+                "name": "SSH - nnllmbp001",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{d626a10e-2a65-57bc-a651-eccb77bf9644}",
+                "hidden": false,
+                "name": "SSH - nlgpaotaapp01",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{0ff6fd28-7f70-5cc6-b9d5-909a35ed9b37}",
+                "hidden": false,
+                "name": "SSH - nlgpaotaapp01_envadmin",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{60513b9c-3a75-5312-98b7-0112ceee3238}",
+                "hidden": false,
+                "name": "SSH - nlgpaotadb01",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{e22c24de-60fb-54ca-ad4d-f0c3ed1631a0}",
+                "hidden": false,
+                "name": "SSH - nlgpaprdapp01",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{37f467fe-63b7-5bef-85bb-cb0b56059e5f}",
+                "hidden": false,
+                "name": "SSH - nlgpaprddb01",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{487ab3fb-929d-56a1-8cdc-0cb0ccb2e0a3}",
+                "hidden": false,
+                "name": "SSH - nlgpaprdsftp01",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{f97b5f34-e7f5-580e-af24-f61137590ed4}",
+                "hidden": false,
+                "name": "SSH - GPA24",
+                "source": "Windows.Terminal.SSH"
+            },
+            {
+                "guid": "{fa8b5a7a-96f3-5d60-bea8-346a6060261e}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "guid": "{fc8a6f2e-bf01-5733-9168-7ba8f09c839e}",
+                "guid": "{7b0c77a6-2f04-521d-a36f-826ab0745236}",
                 "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
+                "name": "Developer PowerShell for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{4ff56d04-d9cf-57ea-bae2-ad396374e7e3}",
+                "hidden": false,
+                "name": "Ubuntu 22.04.5 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu22.04LTS_79rhkp1fndgsc"
             }
         ]
     },
