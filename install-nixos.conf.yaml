@@ -16,7 +16,7 @@
     ~/.bash_profile:
         path: bash_profile
     ~/.bash_aliases:
-        path: bash_aliases
+        path: bash_aliases_nix
     ~/.config/starship.toml:
         path: starship
     ~/.local/share/fonts:
