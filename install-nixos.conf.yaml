@@ -1,0 +1,41 @@
+- clean: ['~']
+
+- clean:
+    ~/.config:
+      recursive: true
+
+- defaults:
+    link:
+      if: '[ "$(uname -s)" = "Linux" ]'
+      create: true
+      relink: true
+
+- link:
+    ~/.bashrc:
+        path: bashrc_nix
+    ~/.bash_profile:
+        path: bash_profile
+    ~/.bash_aliases:
+        path: bash_aliases
+    ~/.config/starship.toml:
+        path: starship
+    ~/.local/share/fonts:
+        path: fonts
+        create: true
+    ~/.config/ghostty/config:
+        path: ghostty
+        create: true
+    ~/.fzf.bash:
+        path: fzf_bash
+        force: true
+    ~/.vimrc:
+        path: config/vim/vimrc
+    ~/.vim/autoload:
+        path: config/vim/autoload
+        create: true
+    
+- shell:
+  -
+    command: fc-cache -f
+    description: Refreshing font cache
+  

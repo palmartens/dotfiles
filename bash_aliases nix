@@ -1,0 +1,5 @@
+alias rebuild='sudo nixos-rebuild switch'
+alias cat='bat -Pp'
+alias diff='colordiff'
+alias fd='fd -H'
+alias ds='du -h --max-depth 1'
