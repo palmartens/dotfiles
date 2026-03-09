@@ -5,5 +5,4 @@ alias ctop='docker run --rm -ti --name=ctop --volume /var/run/docker.sock:/var/r
 alias cat='batcat -Pp'
 alias diff='colordiff'
 alias fd='fd -H'
-alias tv='tv --exact'
 alias ds='du -h --max-depth 1'
