@@ -1,3 +1,8 @@
+$script:VaultDataDir   = "C:\dev\vault\data"
+$script:VaultBackupDir = "C:\dev\vault\backups"
+$global:OneDriveVaultDir = Join-Path $env:OneDrive "Backup\Vault"
+$script:VaultConfig    = "C:\dev\vault\vault-config.hcl"
+
 function VaultIsSealed {
     return (vault status -format=json | ConvertFrom-Json).sealed
 }
@@ -107,4 +112,55 @@ function VaultUnseal {
   }
 
   GetVaultStatus
+}
+
+function VaultStart {
+    $vaultProc = Get-Process -Name "vault" -ErrorAction SilentlyContinue
+    if ($vaultProc) {
+        Write-Host "Vault draait al (PID: $($vaultProc.Id))." -ForegroundColor Yellow
+        return
+    } else {        
+        vault server -config=$VaultConfig &
+        Write-Host "Vault gestart met config $VaultConfig." -ForegroundColor Yellow
+    }
+    
+}
+
+function VaultStop {
+    $vaultProc = Get-Process -Name "vault" -ErrorAction SilentlyContinue
+    if ($vaultProc) {
+        Write-Host "Sealing vault..."
+        vault operator step-down    
+        Stop-Process -Id $vaultProc.Id
+        Write-Host "Vault stopped."
+    } else {
+        Write-Host "Vault is not running."
+    }
+}
+
+function VaultBackup {
+    $timestamp  = Get-Date -Format "yyyyMMdd_HHmmss"
+    
+    New-Item -ItemType Directory -Path $VaultBackupDir -Force | Out-Null
+
+    if ($env:OneDrive) {
+        New-Item -ItemType Directory -Path $global:OneDriveVaultDir -Force | Out-Null
+    } else {
+        Write-Warning "OneDrive omgevingsvariabele niet gevonden. Kopie naar OneDrive wordt overgeslagen."
+    }
+
+    $archiveZip = Join-Path $VaultBackupDir "vault_backup_$timestamp.zip"
+    Compress-Archive -Path (Join-Path $VaultDataDir '*') -DestinationPath $archiveZip -Force
+    Write-Host "Lokale backup gemaakt en opgeslagen ($archiveZip)"
+
+    if ($env:OneDrive -and (Test-Path $global:OneDriveVaultDir)) {
+        Write-Host "Kopiëren naar OneDrive..." -ForegroundColor Cyan
+        
+        # Kopieer het zojuist gemaakte ZIP-bestand naar de OneDrive map
+        Copy-Item -Path $archiveZip -Destination $global:OneDriveVaultDir -Force
+        
+        $oneDriveFile = Join-Path $global:OneDriveVaultDir (Split-Path $archiveZip -Leaf)
+     
+        Write-Host "Kopie succesvol opgeslagen in OneDrive ($oneDriveFile)" -ForegroundColor Green
+    }        
 }
