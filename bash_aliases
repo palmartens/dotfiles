@@ -6,3 +6,8 @@ alias cat='batcat -Pp'
 alias diff='colordiff'
 alias fd='fd -H'
 alias ds='du -h --max-depth 1'
+alias htop='htop -s PERCENT_CPU'
+alias lll='eza -algF --icons --color=always --git'
+alias l=lll
+alias envactivate='. ./.env/bin/activate'
+alias fzfcat='cat $(fzf)'

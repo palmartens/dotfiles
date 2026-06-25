@@ -83,7 +83,7 @@ Host nlgpaotaapp01
     IdentityFile ~/.ssh/id_rsa_philippe_martens
     HostKeyAlgorithms ssh-rsa
     RequestTTY yes
-    RemoteCommand sudo su - envadmin
+    # RemoteCommand sudo su - envadmin
  
     # Traefik dashboard
     localforward 3224 127.0.0.1:8081
@@ -133,7 +133,7 @@ Host nlgpaotadb01
     PreferredAuthentications publickey,password
     IdentityFile ~/.ssh/id_rsa_philippe_martens
     RequestTTY yes
-    RemoteCommand sudo su - envadmin
+    # RemoteCommand sudo su - envadmin
     #PostgreSQL
     localforward 5433 127.0.0.1:5432
  
@@ -143,7 +143,7 @@ Host nlgpaprdapp01
     HostKeyAlgorithms ssh-rsa
     PreferredAuthentications publickey,password
     RequestTTY yes
-    RemoteCommand sudo su - envadmin
+    # RemoteCommand sudo su - envadmin
     # Traefik dashboard
     localforward 4224 127.0.0.1:8083
     # Traefik http endpoint port 80
@@ -157,7 +157,7 @@ Host nlgpaprddb01
     HostKeyAlgorithms ssh-rsa
     PreferredAuthentications publickey,password
     RequestTTY yes
-    RemoteCommand sudo su - envadmin
+    #RemoteCommand sudo su - envadmin
  
     #PostgreSQL
     localforward 5434 127.0.0.1:5432
@@ -167,7 +167,7 @@ Host nlgpaprdsftp01
     User cna488060    
     PreferredAuthentications publickey,password
     RequestTTY yes
-    RemoteCommand sudo su - envadmin
+    # RemoteCommand sudo su - envadmin
  
 Host GPA24
   HostName 127.0.0.1
@@ -176,7 +176,22 @@ Host GPA24
   UserKnownHostsFile /dev/null
   StrictHostKeyChecking no
   PasswordAuthentication no
+#   IdentityFile "C:/Users/Philippe.martens/OneDrive - CGI/Documents/Vagrant/GPA24/.vagrant/machines/gpadevubu-24/virtualbox/private_key"
+  IdentityFile "C:/Users/Philippe.martens/OneDrive - CGI/Documents/Vagrant/GPA24_VMWare/.vagrant/machines/gpa-dev-vmware/vmware_desktop/private_key"
+  IdentitiesOnly yes
+  LogLevel FATAL
+  PubkeyAcceptedKeyTypes +ssh-rsa
+  HostKeyAlgorithms +ssh-rsa
+
+Host GPA24_virtualbox
+  HostName 127.0.0.1
+  User vagrant
+  Port 2888
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
   IdentityFile "C:/Users/Philippe.martens/OneDrive - CGI/Documents/Vagrant/GPA24/.vagrant/machines/gpadevubu-24/virtualbox/private_key"
+#   IdentityFile "C:/Users/Philippe.martens/OneDrive - CGI/Documents/Vagrant/GPA24_VMWare/.vagrant/machines/gpa-dev-vmware/vmware_desktop/private_key"
   IdentitiesOnly yes
   LogLevel FATAL
   PubkeyAcceptedKeyTypes +ssh-rsa

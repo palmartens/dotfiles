@@ -24,25 +24,18 @@
     $LOCALAPPDATA/starship/starship.toml:
       path: starship
       force: true
-      create: true    
-    $USERPROFILE\Documents\PowerShell\:
-      path: script\pwsh\**.ps1 
-      glob: true
-      force: true
-    $ONEDRIVE\Documents\PowerShell\:
-      path: script/pwsh/**.ps1 
-      glob: true
-      if: pwsh.exe -Command test-path -Path $env:ONEDRIVE\Documents\PowerShell
-      force: true
-      create: true
+      create: true            
     $LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json:
       path: config/wt/settings.json
       force: true
       create: true
 
 - shell:
+  - description: "Copy Powershell script to Onedrive folder (no link, sync with onedrive)"
+    command: 'pwsh -NoProfile -Command "$p = Join-Path $env:OneDrive ''Documents/PowerShell''; if (Test-Path $p) { Copy-Item -Path ''script/pwsh/*'' -Destination $p -Recurse -Force }"'        
   - 
     command: echo "Done!"
     description: Ready
     stdout: true
   
+

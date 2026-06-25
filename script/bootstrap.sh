@@ -77,7 +77,7 @@ if [ "$DISTRO_NAME" = "endeavouros" ] || [ "$DISTRO_NAME" = "arch" ]; then
   echo "Installing Fonts & wallpapers"
   sudo pacman -S --noconfirm --needed ttf-firacode-nerd ttf-hack-nerd archlinux-wallpaper
 else
-  sudo apt-get install -y bat colordiff tmux vim ccze > /dev/null
+  sudo apt-get install -y bat colordiff tmux vim ccze wget curl fzf ripgrep fd-find > /dev/null
   if which starship > /dev/null 2>&1; then
     echo "Starship is already installed."
   else
@@ -85,5 +85,9 @@ else
     mkdir -p ~/.local/bin
     curl -sS https://starship.rs/install.sh | sh -s -- -y -b ~/.local/bin/
   fi
-
-fi
+  if which ghostty > /dev/null 2>&1; then
+    echo "Ghostty is already installed."
+  else
+    echo "Installing Ghostty"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+  fi
